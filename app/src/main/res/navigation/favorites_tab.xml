@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/favorites_tab"
+    app:startDestination="@id/navigation_favorites">
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.example.cinematv_mvvm.ui.favorites.FavoritesFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_favorites">
+
+        <action
+            android:id="@+id/to_film_details"
+            app:destination="@id/film_detailed"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/film_detailed"
+        android:name="com.example.cinematv_mvvm.ui.filmDetailed.FilmDetailedFragment"
+        android:label="Film detailed"
+        tools:layout="@layout/film_detailed_layout">
+
+        <argument
+            android:name="filmID"
+            app:argType="integer"
+            android:defaultValue="0"/>
+
+        <action
+            android:id="@+id/to_actor_detailed"
+            app:destination="@id/actor_detailed"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/actor_detailed"
+        android:name="com.example.cinematv_mvvm.ui.actorDetailed.ActorDetailedFragment"
+        android:label="Actor detailed"
+        tools:layout="@layout/fragment_actor_detailed">
+
+        <argument
+            android:name="actor_id"
+            app:argType="integer"
+            android:defaultValue="0"/>
+
+        <action
+            android:id="@+id/to_film_details"
+            app:destination="@id/film_detailed"/>
+    </fragment>
+
+</navigation>

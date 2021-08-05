@@ -1,0 +1,2 @@
+rootProject.name = "CinemaTV_MVVM"
+include ':app'

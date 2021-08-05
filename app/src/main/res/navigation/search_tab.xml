@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_tab"
+    app:startDestination="@id/navigation_search">
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.cinematv_mvvm.ui.search.SearchFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/to_film_details"
+            app:destination="@id/film_detailed"/>
+
+        <action
+            android:id="@+id/to_search_query_results"
+            app:destination="@id/search_result_fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/film_detailed"
+        android:name="com.example.cinematv_mvvm.ui.filmDetailed.FilmDetailedFragment"
+        android:label="Film detailed"
+        tools:layout="@layout/film_detailed_layout">
+
+        <argument
+            android:name="filmID"
+            app:argType="integer"
+            android:defaultValue="0"/>
+
+        <action
+            android:id="@+id/to_actor_detailed"
+            app:destination="@id/actor_detailed"/>
+    </fragment>
+    <fragment
+        android:id="@+id/actor_detailed"
+        android:name="com.example.cinematv_mvvm.ui.actorDetailed.ActorDetailedFragment"
+        android:label="Actor detailed"
+        tools:layout="@layout/fragment_actor_detailed">
+
+        <argument
+            android:name="actor_id"
+            app:argType="integer"
+            android:defaultValue="0"/>
+
+        <action
+            android:id="@+id/to_film_details"
+            app:destination="@id/film_detailed"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/search_result_fragment"
+        android:name="com.example.cinematv_mvvm.ui.searchResult.SearchResultFragment"
+        android:label="Search query result"
+        tools:layout="@layout/fragment_search_result">
+
+        <argument
+            android:name="search_query"
+            app:argType="string"
+            android:defaultValue="a"/>
+
+        <action
+            android:id="@+id/to_navigation_search"
+            app:destination="@id/navigation_search"/>
+
+        <action
+            android:id="@+id/to_film_detailed"
+            app:destination="@id/film_detailed">
+            <argument
+                android:name="filmID"
+                app:argType="integer"/>
+        </action>
+    </fragment>
+</navigation>

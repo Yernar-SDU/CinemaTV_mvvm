@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CinemaTV</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="Fantasy">Fantasy</string>
+    <string name="Action">Action</string>
+    <string name="Animation">Animation</string>
+    <string name="Comedy">Comedy</string>
+    <string name="Adventure">Adventure</string>
+    <string name="Drama">Drama</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
+    <string name="profile">Profile</string>
+    <string name="socket_timeout_exception">Превышено время ожидания сервера</string>
+    <string name="no_internet_connection">Нет интернет соединения</string>
+    <string name="watch">WATCH</string>
+</resources>

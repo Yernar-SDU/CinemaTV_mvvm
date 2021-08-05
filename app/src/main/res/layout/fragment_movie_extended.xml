@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.cinematv_mvvm.ui.filmDetailed.FilmDetailedViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/black">
+
+
+                    <RelativeLayout
+                        android:id="@+id/header"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.elyeproj.loaderviewlibrary.LoaderImageView
+                            android:id="@+id/movie_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="center" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#50000000" />
+
+                        <com.elyeproj.loaderviewlibrary.LoaderTextView
+                            android:id="@+id/original_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.8"
+                            android:fontFamily="@font/nova_flat"
+                            android:padding="4dp"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            tools:text="Tom Clancy's Without Remorse" />
+
+                        <com.elyeproj.loaderviewlibrary.LoaderTextView
+                            android:id="@+id/chr1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/chr2"
+                            android:alpha="0.7"
+                            android:fontFamily="@font/nova_flat"
+                            android:padding="2dp"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            tools:text="2020, Kazakhstan, Comedy, Drama, 16+" />
+
+                        <com.elyeproj.loaderviewlibrary.LoaderTextView
+                            android:id="@+id/chr2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/chr3"
+                            android:alpha="0.7"
+                            android:fontFamily="@font/nova_flat"
+                            android:padding="2dp"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            tools:text="Actors: Yernar Akhmetbek, Baitogayev Zhandos" />
+
+                        <com.elyeproj.loaderviewlibrary.LoaderTextView
+                            android:id="@+id/chr3"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentBottom="true"
+                            android:alpha="0.7"
+                            android:fontFamily="@font/nova_flat"
+                            android:padding="2dp"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            tools:text="time: 89 mins, rating: 8.3" />
+
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/button_watch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_background"
+                        android:clickable="true"
+                        android:elevation="10dp"
+                        android:focusable="true"
+                        android:fontFamily="@font/nova_flat"
+                        android:paddingLeft="60dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="60dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/watch"
+                        android:textColor="@color/white"
+                        android:textSize="25sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/header" />
+
+
+                    <LinearLayout
+                        android:id="@+id/utlity_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/button_watch">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/download_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:foregroundGravity="center"
+                                android:src="@drawable/download_image" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/download_image"
+                                android:fontFamily="@font/nova_flat"
+                                android:text="Download"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/save_to_favorites_button"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/star_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:foregroundGravity="center"
+                                android:src="@drawable/star_image" />
+
+                            <TextView
+                                android:id="@+id/watch_later_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/download_image"
+                                android:fontFamily="@font/nova_flat"
+                                android:text="Watch Later"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <com.elyeproj.loaderviewlibrary.LoaderTextView
+                        android:id="@+id/overview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/nova_flat"
+                        android:minHeight="170dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        app:layout_constraintTop_toBottomOf="@id/utlity_buttons"
+                        app:width_weight="1" />
+
+
+                    <TextView
+                        android:id="@+id/actor_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/nova_flat"
+                        android:text="Actors"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/overview" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/actors_recycler"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/actor_title" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        app:layout_constraintTop_toBottomOf="@id/actors_recycler"
+                        tools:ignore="MissingConstraints" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/detailed_actor_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</layout>
+

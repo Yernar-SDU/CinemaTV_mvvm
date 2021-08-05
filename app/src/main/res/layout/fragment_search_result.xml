@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <LinearLayout
+            android:id="@+id/header"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/arrow_left"
+                app:tint="@color/grey"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/search_query_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search: as"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
+        </LinearLayout>
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srl_swipe"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_result_films"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <View
+            app:layout_constraintBottom_toBottomOf="@id/srl_swipe"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

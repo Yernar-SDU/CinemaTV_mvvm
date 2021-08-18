@@ -24,6 +24,7 @@ class PrefsImpl @Inject constructor(private val gson: Gson,private val preferenc
         editor.putBoolean("firstTime", false)
         editor.putBoolean("auth", false)
         editor.putBoolean("loggedIn", false)
+        editor.putString("sessionId", "")
         editor.apply()
     }
 
@@ -34,6 +35,16 @@ class PrefsImpl @Inject constructor(private val gson: Gson,private val preferenc
     override fun setAuthorized(isAuthorized: Boolean) {
         val editor = preferences.edit()
         editor.putBoolean("auth", isAuthorized)
+        editor.apply()
+    }
+
+    override fun getSessionId(): String {
+        return preferences.getString("sessionId", "").toString()
+    }
+
+    override fun setSessionId(sessionId: String) {
+        val editor = preferences.edit()
+        editor.putString("sessionId", sessionId)
         editor.apply()
     }
 

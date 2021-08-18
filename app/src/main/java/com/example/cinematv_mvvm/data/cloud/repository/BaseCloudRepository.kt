@@ -27,4 +27,13 @@ interface BaseCloudRepository{
 
     suspend fun getMoviesSearch(page: Int, query: String): ResultWrapper<JsonResults>
 
+    suspend fun getRequestToken(): ResultWrapper<LoginValidationSuccess>
+
+    suspend fun getSessionId(loginValidation: LoginValidation): ResultWrapper<LoginValidationSuccess>
+
+    suspend fun login(loginValidation: LoginValidation): ResultWrapper<LoginValidationSuccess>
+
+    suspend fun authenticate(requestToken: String): ResultWrapper<Unit>
+
+    suspend fun getAccountDetails(session_id: String): ResultWrapper<User>
 }

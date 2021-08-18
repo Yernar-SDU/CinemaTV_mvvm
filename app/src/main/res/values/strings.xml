@@ -15,4 +15,5 @@
     <string name="socket_timeout_exception">Превышено время ожидания сервера</string>
     <string name="no_internet_connection">Нет интернет соединения</string>
     <string name="watch">WATCH</string>
+    <string name="genres">Genres</string>
 </resources>

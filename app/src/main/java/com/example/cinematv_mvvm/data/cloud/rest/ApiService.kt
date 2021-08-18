@@ -2,9 +2,7 @@ package com.example.cinematv_mvvm.data.cloud.rest
 
 import com.example.cinematv_mvvm.core.Config
 import com.example.cinematv_mvvm.model.*
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -41,17 +39,26 @@ interface ApiService {
     @GET("movie/top_rated" + Config.API_KEY + "&language=en-US")
     suspend fun getTopRatedMovieByPage(@Query("page") page: Int): JsonResults
 
-
     @GET("movie/upcoming" + Config.API_KEY + "&language=en-US")
     suspend fun getUpcomingMovieByPage(@Query("page") page: Int): JsonResults
-
 
     @GET("search/movie" + Config.API_KEY)
     suspend fun getMoviesSearch(@Query("page") page: Int, @Query("query") query: String): JsonResults
 
     @GET("authentication/token/new" + Config.API_KEY)
-    suspend fun getRequestToken()
+    suspend fun getRequestToken(): LoginValidationSuccess
+
+    @GET("authenticate/{request_token}" + Config.API_KEY)
+    suspend fun authenticate(@Path("request_token") requestToken: String)
 
 
+    @POST("authentication/token/validate_with_login" + Config.API_KEY)
+    suspend fun login(@Body loginValidation: LoginValidation): LoginValidationSuccess
+
+    @POST("authentication/session/new" + Config.API_KEY)
+    suspend fun getSessionId(@Body loginValidation: LoginValidation): LoginValidationSuccess
+
+    @GET("account" + Config.API_KEY)
+    suspend fun getAccountDetails(@Query("session_id") session_id: String): User
 
 }

@@ -14,8 +14,10 @@ import javax.inject.Inject
 class SearchResultViewModel @Inject constructor(val baseCloudRepository: BaseCloudRepository): BaseViewModel(){
     val movies = MutableLiveData(ArrayList<Movie>())
     val moviess = ArrayList<Movie>()
+    val isRefreshing: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
 
     fun getMovies(isFromFirstPage: Boolean,query: String){
+        isRefreshing.postValue(true)
         launchIO {
             var page = 1
             if (!isFromFirstPage){
@@ -34,6 +36,7 @@ class SearchResultViewModel @Inject constructor(val baseCloudRepository: BaseClo
             page++
             KEYS.FILM_REQUEST_PAGES["Search"] = page
         }
+        isRefreshing.postValue(false)
     }
 
 }

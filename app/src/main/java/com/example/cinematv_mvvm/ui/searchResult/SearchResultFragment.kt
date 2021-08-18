@@ -40,7 +40,7 @@ class SearchResultFragment :
             LayoutInflater.from(requireContext()),
             R.layout.fragment_search_result, container, false
         )
-
+        binding.viewModel = viewModel
         return binding.root
     }
 
@@ -72,8 +72,6 @@ class SearchResultFragment :
         }
 
         initOnScrollReachesEnd()
-
-
     }
 
     private fun initOnScrollReachesEnd() {

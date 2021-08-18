@@ -13,6 +13,10 @@ interface Prefs {
     fun isAuthorized(): Boolean
     fun setAuthorized(isAuthorized: Boolean)
 
+    fun getSessionId(): String
+    fun setSessionId(sessionId: String)
+
+
     fun isLoggedIn(): Boolean
     fun login()
     fun logout()

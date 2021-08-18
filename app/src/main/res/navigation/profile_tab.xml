@@ -8,14 +8,34 @@
         android:id="@+id/navigation_profile_logged_in"
         android:name="com.example.cinematv_mvvm.ui.profile.ProfileFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_profile_logged_in" />
+        tools:layout="@layout/fragment_profile_logged_in" >
+        <action
+            android:id="@+id/to_profile_logged_in"
+            app:destination="@id/navigation_profile_logged_in">
+        </action>
+
+        <action
+            android:id="@+id/to_profile_not_logged_in"
+            app:destination="@id/navigation_profile_not_logged_in"/>
+        <action
+            android:id="@id/to_login"
+            app:destination="@id/login"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile_not_logged_in"
         android:name="com.example.cinematv_mvvm.ui.profile.ProfileFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_profile_not_logged_in">
+        <action
+            android:id="@+id/to_profile_logged_in"
+            app:destination="@id/navigation_profile_logged_in">
 
+        </action>
+
+        <action
+            android:id="@+id/to_profile_not_logged_in"
+            app:destination="@id/navigation_profile_not_logged_in"/>
         <action
             android:id="@+id/to_login"
             app:destination="@id/login"/>
@@ -27,5 +47,11 @@
         android:id="@+id/login"
         android:name="com.example.cinematv_mvvm.ui.login.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login_page"/>
+        tools:layout="@layout/fragment_login_page">
+        <action
+            android:id="@+id/to_profile_logged_in"
+            app:destination="@id/navigation_profile_logged_in"/>
+
+
+    </fragment>
 </navigation>

@@ -2,6 +2,7 @@ package com.example.cinematv_mvvm.ui.filmDetailed
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import com.example.cinematv_mvvm.core.BaseViewModel
 import com.example.cinematv_mvvm.data.cloud.ResultWrapper
 import com.example.cinematv_mvvm.data.cloud.repository.BaseCloudRepository
@@ -15,9 +16,11 @@ import javax.inject.Inject
 class FilmDetailedViewModel @Inject
 constructor(
     private val baseCloudRepository: BaseCloudRepository,
-    private val prefs: Prefs
+    private val prefs: Prefs,
+    savedStateHandle: SavedStateHandle
     ) : BaseViewModel() {
     private val TAG = this::class.java.simpleName
+    val id:Int? = savedStateHandle.get("id")
     val movie = MutableLiveData(Movie())
     val credits = MutableLiveData(MovieCredit())
     val actors = MutableLiveData(ArrayList<Person>())

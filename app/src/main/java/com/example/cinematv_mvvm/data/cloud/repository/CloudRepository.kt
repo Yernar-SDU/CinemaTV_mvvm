@@ -79,4 +79,34 @@ class CloudRepository(
             api.getMoviesSearch(page, query)
         }
     }
+
+    override suspend fun getRequestToken(): ResultWrapper<LoginValidationSuccess> {
+        return safeApiCall(dispatcher){
+            api.getRequestToken()
+        }
+    }
+
+    override suspend fun getSessionId(loginValidation: LoginValidation): ResultWrapper<LoginValidationSuccess> {
+        return safeApiCall(dispatcher){
+            api.getSessionId(loginValidation)
+        }
+    }
+
+    override suspend fun login(loginValidation: LoginValidation): ResultWrapper<LoginValidationSuccess> {
+        return safeApiCall(dispatcher){
+            api.login(loginValidation)
+        }
+    }
+
+    override suspend fun authenticate(requestToken: String): ResultWrapper<Unit> {
+        return safeApiCall(dispatcher){
+            api.authenticate(requestToken)
+        }
+    }
+
+    override suspend fun getAccountDetails(session_id: String): ResultWrapper<User> {
+        return safeApiCall(dispatcher){
+            api.getAccountDetails(session_id)
+        }
+    }
 }
